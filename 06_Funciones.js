@@ -3,7 +3,7 @@
  */
 
 
-//las funciones al igual que las◘☻ variables pueden ser guardadas en memoria como un valor
+//las funciones al igual que las variables pueden ser guardadas en memoria como un valor
 
 
 
@@ -63,12 +63,11 @@ console.log(saludar('noel tejeda'));
  * funciones de expresion ó anonimas
  * clase 24 Udemy
 */
-
 var suma = function(a,b){
 //la funcion como no tiene nombre también se le conoce como funciones anonimas.entre parentesis le paso dos parametros a,b
     return a+b;
 }
-//suma(2,2) si solo llamo la funcion no retornará ya que no se ha almacenado ese retorno en ningún lago.
+//suma(2,2) si solo llamo la funcion no retornará ya que no se ha almacenado ese retorno en ningún lado.
 console.log(suma(2,2));
 
 
@@ -85,7 +84,6 @@ var restar = (a,b) => {
     return a-b;
 }
 console.log(restar(4,2))
-
 
 var multiplicar = (a,b) => a*b;
 console.log(multiplicar(2,2)); 

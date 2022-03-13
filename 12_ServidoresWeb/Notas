@@ -1,0 +1,8 @@
+Para empezar a trabajar como servidor web necesitamos 2 dependencias
+    
+    * express.js => para generar servidores web : para instalar : npm i express
+    
+    * una dependencia de desarrollo llamada nodemon que va a mantener el código activo y no tener que estar iniciando con el comando
+      para instalar: npm i -D nodemon   (-D porque queremos la version de desarrollo)
+
+en la siguiente página se encontraran todas las dependencias: https://www.npmjs.com/

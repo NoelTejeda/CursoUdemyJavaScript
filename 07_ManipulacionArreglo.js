@@ -129,8 +129,193 @@ console.log(suma / calificaciones.length);
 /**
  * SOME ---  EVERY
  * 
- * some: dentro de un arreglo ayuda a verificar si al menos 1 de todos los elementos que contienen arreglos cumple con una condicion especifica. si la cumple al menos 1 va a retornar un valor lógico (true or false)
+ * some: dentro de un arreglo ayuda a verificar "si al menos 1" de todos los elementos que contienen arreglos cumple con una condicion especifica. si la cumple al menos 1 va a retornar un valor lógico (true or false)
 
-* every: retorna un valor lógico si todos los elementos de un arreglo cumple con toda la condición que se le especifique.
+* every: retorna un valor lógico "si todos los elementos" de un arreglo cumple con toda la condición que se le especifique.
 * 
 */
+
+//problema: queremos ver todos los numeros pares ó impares en un array
+//problema: se también se puede usar si queremos ver las personas que sean mayores de edad.
+
+//some
+//var numeros = [1,2,3,4,5,6,7,8,9,10];
+var numeros = [1,3,5,7,9];
+var resultado = numeros.some((numeros) => numeros % 2 === 0);
+console.log(resultado);
+
+//every
+var numeros = [2,4,6,8,10];
+//var numeros = [1,3,5,7,9];
+var resultado = numeros.every((numeros) => numeros % 2 === 0);
+console.log(resultado);
+
+
+
+/**
+ * FIND ----FILTER---  FINDINDEX
+ * 
+ * find: va a buscar un elemento que coincida con cierta condición dentro de un array y lo va a retornar.; el detalle es que va a mostrar el primero que consiga, es decir, si se quieren buscar 2 valores solo va a arrojar el primero que consiga.
+ * 
+ * filter: retorna todas las coincidencias
+ * 
+ * findIndex: va a retornar la posición del elemento en el array
+ * 
+ */
+
+//supongamos que se requiere buscar un único elemento dentro del array.y se necesita conseguir un id en especifico.  
+var clientes =[
+    {id: 1, nombre: 'paula'},
+    {id: 2, nombre: 'Juana'},
+    {id: 3, nombre: 'Melisa'},
+    {id: 4, nombre: 'flora'},
+    {id: 5, nombre: 'July'},
+]
+
+var cliente = clientes.find((cliente) => cliente.id === 1);
+console.log(cliente);
+console.log(clientes);
+
+//usando filter retorna todas las coincidencias
+var clientes =[
+    {id: 1, nombre: 'paula'},
+    {id: 2, nombre: 'Juana'},
+    {id: 3, nombre: 'Melisa'},
+    {id: 4, nombre: 'flora'},
+    {id: 1, nombre: 'July'},
+]
+
+var filter= clientes.filter((cliente) => cliente.id === 1);
+console.log(clientes);
+console.log(filter);
+
+
+//usando findIndex
+var clientes =[
+    {id: 1, nombre: 'paula'},
+    {id: 2, nombre: 'Juana'},
+    {id: 3, nombre: 'Melisa'},
+    {id: 4, nombre: 'flora'},
+    {id: 1, nombre: 'July'},
+]
+
+var filter= clientes.findIndex((cliente) => cliente.id === 1);
+console.log(clientes);
+console.log(filter);
+
+
+
+/**
+ * 
+ * INCLUDES
+ *determina si en un arreglo existe un elemento en especifico y va a devolver verdadero o falso  
+ nota: no recibe una función como parametro sino el valor especifico que lo que se vaya a solicitar
+ */
+
+ var mascota = ['gato','perro','caballo'];
+ var resultado = mascota.includes('caballo')
+ console.log(resultado);
+ 
+ //para buscar caracteres dentro de una cadena:
+ console.log('gabriel'.includes('el'));
+ 
+ //utilizando includes con filtering; buscará todos los nombres que tenga "a"
+ var buscador = (parametro) => {
+
+     var clientes =[
+         {id: 1, nombre: 'paula'},
+         {id: 2, nombre: 'Juana'},
+         {id: 3, nombre: 'Melisa'},
+         {id: 4, nombre: 'flora'},
+         {id: 1, nombre: 'July'},
+    ]
+    return clientes.filter((cliente) => cliente.nombre.includes(parametro))
+    
+}
+console.log(buscador('a'));
+
+
+/**
+ * 
+ * JOIN
+ * nos une todos los elementos de una arreglo y convertir un string a partir de esa union
+ * concatena un arreglo con comas (,) sino se le pasa parametros.
+ * en el parametro le podemos indicar si queremos usar una coma, punto, barras, etc. ejemplo:
+ */
+
+var elementos = ['aire','fuego','agua']
+var resultado = elementos.join('/');
+console.log(resultado);
+
+// los join se usan en los casos de que se usen archivos csv, el csv contiene archivos separados con comas y estos se pueden abrir en un excel y como estan separados por comas (,) excel los detecta y los separa por celdas
+
+//----------------------------------------------------------------
+//video 34 curso udemy: https://www.udemy.com/course/javascript-desde-cero-con-nodejs/learn/lecture/28930098#overview
+//ejemplo haciendo un join a un arreglo con objetos:
+
+var clientes =[
+    {id: 1, nombre: 'paula'},
+    {id: 2, nombre: 'Juana'},
+    {id: 3, nombre: 'Melisa'},
+    {id: 4, nombre: 'flora'},
+    {id: 1, nombre: 'July'},
+]
+
+//console.log(clientes.join()); //no está convirtiendo el objeto en string, usa object object para identificar que lo que se está haciendo join es un objeto; join no puede convertir un array de objetos a un string completo para generar string separados por comas. No lo puede hacer. PERO  podemos ayudarles implementando algunos métodos como map (obtener los datos de cada objeto) y posteriormente hacer un join. ejemplo:
+
+//supongamos que solicitan generar un archivo csv a partir de los datos de los clientes para posteriormente abrirlo en un excel
+//NOTE: muy importante averiguar más sobre esto.
+
+//generamos una funcion con nombre csvGenerator
+var csvGenerator = (array, separator = ',') => {
+    // la variable data son los datos que se generran a partir de los arreglos de objetos,esa data saldrá a partir del array, y al array le hacemos un map. porque queremos modificar cada objeto que nos pasen
+    let data =  array.map((element) => Object.values(element).join(separator))
+    data.forEach(element => console.log(element))                      
+}
+
+csvGenerator(clientes);
+
+
+
+
+
+/**
+ * 
+ * CONCAT, SORT, SLICE, SPLICE
+ 
+ * 
+ * 
+ */
+
+// concat: permite concatenar dos arreglos ejemplo:
+//por alguna razón solicitar unir estos dos arreglos, hay que declarar otro array porque concat generará un nuevo array.
+var array1 = ['Noel','Juan','Pedro','Raul'];
+var array2 = [1,2,3,4];
+var array3 = array1.concat(array2);
+//var array4 = [array1, array2]; //de esta manera crea un array dentro de otro array.
+var array4 = [...array1, ...array2]; //con esta expresión (...) hará lo mismo que concat
+
+console.log(array3);
+
+//----------------------------------------------------------------
+// sort: ordena los arreglos pero por el orden ascii averiguar mas de esto.
+var array1 = ['Noel','Juan','Pedro','Raul',2,3,4,1,];
+console.log(array1.sort());
+
+
+//----------------------------------------------------------------
+//splice:es mutable. remueve o modifica elementos de un array ejemplo:
+
+var nombre = ['Noel','Juan','Pedro','Raul'];
+//nombre.splice(0,1); //parametros desde donde hasta donde se va a modificar(desdeDondeVaAmodificar, cuantosValores)
+nombre.splice(1,1,'ana') //reemplaza al valor indicado por otro.
+console.log(nombre);
+
+
+
+//----------------------------------------------------------------
+//slice: es inmutable.(no modifica el array raiz) hace una copia con los valores que queramos, no toma el último parametro. ejemplo:
+var nombre = ['Noel','Juan','Pedro'];
+var resultado= nombre.slice(1,2); //el último valor no es incluyente.
+console.log(resultado);
+console.log(nombre);

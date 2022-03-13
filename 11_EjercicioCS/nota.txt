@@ -1,0 +1,21 @@
+  https://www.udemy.com/course/javascript-desde-cero-con-nodejs/learn/lecture/28930164#questions
+para crear un modelo cliente seguir estos pasos:
+
+1.- crear una carpeta donde se alojaran los script del Desarrollo
+
+2.- se abre una terminal, se ubica la carpeta y en ella lanzar el comando npm init, el cual solicitará lo siguiente:
+    * package name: podemos dejarle el mismo de la carpeta y en ella
+    * version: se puede dejar la que sale por default la (1.0.0.0)
+    * descripcion: motivo de la creacion podria seguir
+    * entry point: como se llamara, tomar en cuenta que al crear el desarrollo se debe llamar igual. por convención dejamos index.json
+                   aunqeu también se puede encontrar en otros desarrollos con nombres como: app.js, main.js, 
+    * una vez finalizado creará un archivo llamado package.js donde se alojará la configuracion.
+
+    NOTA: si se quiere evitar todos estos pasos podemos simplificar con: npm init -y  
+
+3.- Instalacion de dependencias:
+    * antes de instalar asegurarse  que los cambios en package.json esten guardados. 
+    * ubicarse en la terminal dentro de la carpeta a trabajar
+    * npm es el gestor de dependencias de node
+    * escribir npm install axios  que es una herramienta que nos ayudará a realizar peticiones a otro servidor; 
+      cuando instalemos una depencia se reflejará en el package json.(el manifesto) y a su vez se generá una carpeta llamada node_modules, que es una carpeta que va a contener en sí al paquete. mientras que packagejson solo el registro del paquete que estamos utilizando.y a su vez se generará otro archivo llamado package-lock.json

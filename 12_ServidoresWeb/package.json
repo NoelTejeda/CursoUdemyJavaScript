@@ -1,0 +1,18 @@
+{
+  "name": "12_servidoresweb",
+  "version": "1.0.0",
+  "description": "Practica con servidores web en nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Noel Tejeda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
